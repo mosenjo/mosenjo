@@ -386,3 +386,22 @@ body { background:var(--bg); color:var(--ink); transition:background .22s,color 
   .profile-footer{width:min(100% - 2.6rem,36rem);padding:0 0 3rem;}
   .profile-footer__inner{gap:.5rem;}
 }
+
+
+/* Faithful homepage flip transition for light/dark theme changes. */
+body {
+  transform-origin:50% 50vh;
+  transform-style:preserve-3d;
+  backface-visibility:hidden;
+}
+html.is-theme-moving {overflow-x:hidden;}
+html.is-theme-moving body {will-change:transform;}
+html.is-theme-animating body {
+  transition:transform 280ms cubic-bezier(.22,.72,.24,1),background-color 180ms ease,color 180ms ease;
+}
+@media (prefers-reduced-motion:reduce){
+  body,html.is-theme-animating body{
+    transform:none!important;
+    transition:none!important;
+  }
+}
