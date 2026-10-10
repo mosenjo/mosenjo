@@ -326,3 +326,63 @@ body { background:var(--bg); color:var(--ink); transition:background .22s,color 
   .mobile-controls .language-picker {font-size:.9rem;}
   .mobile-controls .language-picker summary {min-height:2.75rem;}
 }
+
+
+/* Identical navigation geometry on the Home and Index pages. */
+.navigation .nav-home-link,
+.navigation .nav-index-link {
+  line-height:1.5;
+  min-height:1.5rem;
+  font-size:1rem;
+  font-weight:400;
+}
+.navigation .nav-index-link,
+.navigation .nav-index-link.active {
+  display:flex;
+  align-items:baseline;
+  gap:.35rem;
+}
+.navigation .nav-index-link {color:var(--muted);}
+.navigation .nav-index-link[aria-current="page"] {color:var(--ink);}
+.navigation .nav-index-link:hover {color:var(--ink);}
+.navigation .nav-index-link .marker {
+  font-size:1.25rem;
+  flex:0 0 auto;
+  color:var(--lisy-blue);
+  line-height:.5;
+}
+/* Original five-link footer, shared by both sections of the website. */
+.profile-footer {
+  width:min(83%,90rem);
+  margin:clamp(5rem,8vw,8rem) auto 0;
+  padding:1rem 0 4.5rem;
+}
+.profile-footer__inner {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:.65rem;
+}
+.profile-footer__link {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:2.75rem;
+  height:2.75rem;
+  color:var(--ink);
+  border-radius:.2rem;
+  transition:color 150ms ease;
+}
+.profile-footer__link:hover {color:var(--lisy-blue);}
+.profile-footer__link svg{width:1.1rem;height:1.1rem;display:block;}
+.profile-footer__link:focus-visible{
+  outline:2px solid var(--lisy-blue);
+  outline-offset:2px;
+}
+@media(max-width:900px){
+  .navigation .nav-index-link,
+  .navigation .nav-index-link.active{gap:.35rem;}
+  .profile-footer{width:min(100% - 2.6rem,36rem);padding:0 0 3rem;}
+  .profile-footer__inner{gap:.5rem;}
+}
